@@ -1,0 +1,16 @@
+{
+  "name": "com.poly-snake.core",
+  "version": "1.0.0",
+  "displayName": "Poly-Snake Core",
+  "description": "Core",
+  "keywords": [
+    "keyword1",
+    "keyword2",
+    "keyword3"
+  ],
+  "author": {
+    "name": "Unity",
+    "email": "unity@example.com",
+    "url": "https://www.unity3d.com"
+  }
+}
