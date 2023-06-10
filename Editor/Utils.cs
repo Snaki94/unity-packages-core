@@ -1,11 +1,10 @@
-using System;
 using UnityEditor;
 
-namespace PolySnake.Core
+namespace PolySnake.Core.Editor
 {
     public static class Utils
     {
-        public static void AddDefineSymbolOnBuildTargetGroup(BuildTargetGroup buildTargetGroup, String moduleKey)
+        public static void AddDefineSymbolOnBuildTargetGroup(BuildTargetGroup buildTargetGroup, string moduleKey)
         {
             var currentData = PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup);
 
@@ -19,22 +18,22 @@ namespace PolySnake.Core
             {
                 if (!currentData[^1].Equals(';'))
                 {
-                    currentData += ';';
+                    currentData = $"{currentData};";
                 }
 
-                currentData += moduleKey;
+                currentData = $"{currentData}{moduleKey}";
                 PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, currentData);
             }
         }
 
-        public static void RemoveDefineSymbolOnBuildTargetGroup(BuildTargetGroup buildTargetGroup, String moduleKey)
+        public static void RemoveDefineSymbolOnBuildTargetGroup(BuildTargetGroup buildTargetGroup, string moduleKey)
         {
             var currentData = PlayerSettings.GetScriptingDefineSymbolsForGroup(buildTargetGroup);
 
             if (!currentData.Contains(moduleKey)) return;
 
-            currentData = currentData.Replace(moduleKey + ";", "");
-            currentData = currentData.Replace(";" + moduleKey, "");
+            currentData = currentData.Replace($"{moduleKey};", "");
+            currentData = currentData.Replace($";{moduleKey}", "");
             currentData = currentData.Replace(moduleKey, "");
             PlayerSettings.SetScriptingDefineSymbolsForGroup(buildTargetGroup, currentData);
         }
