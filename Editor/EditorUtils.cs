@@ -2,7 +2,7 @@ using UnityEditor;
 
 namespace PolySnake.Core.Editor
 {
-    public static class Utils
+    public static class EditorUtils
     {
         public static void AddDefineSymbolOnBuildTargetGroup(BuildTargetGroup buildTargetGroup, string moduleKey)
         {
@@ -49,5 +49,6 @@ namespace PolySnake.Core.Editor
             RemoveDefineSymbolOnBuildTargetGroup(EditorUserBuildSettings.selectedBuildTargetGroup,
                 symbolDefine);
         }
+
     }
 }
